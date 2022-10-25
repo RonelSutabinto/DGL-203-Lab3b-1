@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  
+    <title>Animatitons</title>
+    <style>
+      body {
+        background: #222;
+      }
+      
+      svg {
+        margin: auto;
+        display: block;
+      }
+/* Navigation bag with hamburger menu
+====================================================== */
+/* Navigation bar hamburger style source from codepen by muteblues
+https://codepen.io/mutedblues/pen/MmPNPG 
+==================================================================*/
+.container-nav a {
+    color: #ffff;
+  }
+  
+  /* header */
+  
+  .header {
+    background-color: #fff;
+    box-shadow: 1px 1px 4px 0 rgba(0,0,0,.1);
+    position: fixed;
+    width: 100%;
+    z-index: 3;
+     background: linear-gradient(45deg, #405b60, #405b60);
+  
+  }
+  
+  .header ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    overflow: hidden;
+    background-color: #fff;
+  }
+  
+  .header li a {
+    display: block;
+    padding: 20px 20px;
+  /*   border-right: 1px solid #f4f4f4; */
+    text-decoration: none;
+  }
+  
+  .header li a:hover,
+  .header .menu-btn:hover {
+    background-color: #12343b;
+  }
+  
+  .header .logo {
+    display: block;
+    float: left;
+    font-size: 2em;
+    padding: 10px 20px;
+    text-decoration: none;
+  }
+  
+  /* hamburger menu */
+  
+  .header .menu {
+    clear: both;
+    max-height: 0;
+    transition: max-height .2s ease-out;
+     background: linear-gradient(45deg, #405b60, #405b60);
+  } 
+  
+  
+  /* hamburger menu icon */
+  
+  .header .menu-icon {
+    cursor: pointer;
+    display: inline-block;
+    float: right;
+    padding: 28px 20px;
+    position: relative;
+    user-select: none;
+  }
+  
+  .header .menu-icon .navicon {
+    background: #333;
+    display: block;
+    height: 2px;
+    position: relative;
+    transition: background .2s ease-out;
+    width: 18px;
+  }
+  
+  .header .menu-icon .navicon:before,
+  .header .menu-icon .navicon:after {
+    background: #333;
+    content: '';
+    display: block;
+    height: 100%;
+    position: absolute;
+    transition: all .2s ease-out;
+    width: 100%;
+  }
+  
+  .header .menu-icon .navicon:before {
+    top: 5px;
+  }
+  
+  .header .menu-icon .navicon:after {
+    top: -5px;
+  }
+  
+  /* menu btn */
+  
+  .header .menu-btn {
+    display: none;
+  }
+  
+  .header .menu-btn:checked ~ .menu {
+    max-height: 240px;
+  }
+  
+  .header .menu-btn:checked ~ .menu-icon .navicon {
+    background: transparent;
+  }
+  
+  .header .menu-btn:checked ~ .menu-icon .navicon:before {
+    transform: rotate(-45deg);
+  }
+  
+  .header .menu-btn:checked ~ .menu-icon .navicon:after {
+    transform: rotate(45deg);
+  }
+  
+  .header .menu-btn:checked ~ .menu-icon:not(.steps) .navicon:before,
+  .header .menu-btn:checked ~ .menu-icon:not(.steps) .navicon:after {
+    top: 0;
+  }
+  .container-nav {
+    max-width: 1000px;
+    margin: 0 auto
+  }
+  
+  /* 48em = 768px */
+  @media (min-width: 768px) {
+    .header li {
+      float: left;
+    }
+    .header li a {
+      padding: 20px 30px;
+    }
+    .header .menu {
+      clear: none;
+      float: right;
+      max-height: none;
+    }
+    .header .menu-icon {
+      display: none;
+    }
+
+    /* add responsive display for animation*/
+    main.animation {
+        list-style-type: none;
+        margin: 0;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(4, 1fr);
+        text-align: center;
+    }
+    section.cloud-wrap{
+        grid-column: auto;
+    }
+  }
+  
+
+
+    @keyframes offset {
+      to { stroke-dashoffset: 0; }
+    }
+    @keyframes fill-blue {
+      to { fill: #007dba; stroke: transparent; }
+    }
+    @keyframes fill-green {
+      to { fill: #78be20; stroke: transparent; }
+    }
+    path {
+      stroke-width: 2;
+      stroke-dasharray: 3212;
+      stroke-dashoffset: 3212;
+      fill: transparent;
+    }
+    .blue {
+      stroke: #007dba;
+      animation: offset 10s linear forwards, fill-blue 1s 1s forwards;
+    }
+    .green {
+      stroke: #78be20;
+      animation: offset 10s linear forwards, fill-green 1s 1s forwards;
+    }
+
+    .container{
+      padding: 100px 0;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    </style>
+</head>
+
+<body>
+    <main>
+        <header>
+            <!-- Navigation bar=
+            ================================== -->
+            <section class="header">
+                <div class="container-nav">
+                <a href="index.html" class="logo">Logo Here</a>
+                <input class="menu-btn" type="checkbox" id="menu-btn" />
+                <label class="menu-icon" for="menu-btn"><span class="navicon"></span></label>
+                <ul class="menu">
+                <li><a href="assignment2b.html">Assignment 2B</a></li>
+                <li><a href="assignment2c.html">Assignment 2C</a></li>
+                </ul>
+                </div>
+            </section>
+        </header>
+
+        <!-- animarion container of 2 rows and 3 columns for big screen while 
+            on small screen it will become 4 rows with 1 column
+         -->
+        <section class="container">
+          <svg width="600" height="160" xmlns="http://www.w3.org/2000/svg">
+            <path class="blue" d="M108.1 44.5l26.4-2.2c-13-22.7-37.2-36.8-63.2-36.8-25.6 0-48.8 13.1-62.2 35.1-.6 1.1-1.2 2.2-1.7 3.3l-.2.5 2.9 8.3 14.3 8.6.6-1.5c7.6-19.1 25.8-31.4 46.3-31.4 13.8 0 26.6 5.5 36.1 15.6l.4.4h.3v.1zm226.4 67.8h-20.7c-8.1 0-13.9-3-15.7-11.3h44.7c.1-1.7.2-3.3.2-4.8 0-18.2-9.8-34.9-31.3-34.9-18.7 0-31.8 15.1-31.8 33.4v.2c0 19.6 14.3 33.2 33.5 33.2h10.7l10.4-15.8zM311.8 76c7.7 0 12.5 5.5 13.5 13.7h-27.4c1.4-8.3 6.3-13.7 13.9-13.7m43-13.4H373v13c3.7-8.9 9.7-14.6 20.5-14.1v19.1h-.9c-12.1 0-19.5 7.3-19.5 22.6v23.7h-18.2V62.6h-.1zm175.7 49.7h-20.7c-8.2 0-13.9-3-15.7-11.3h44.7c.1-1.7.2-3.3.2-4.8 0-18.2-9.8-34.9-31.3-34.9-18.7 0-31.7 15.1-31.7 33.4v.2c0 19.6 14.3 33.2 33.5 33.2h10.7l10.3-15.8zM507.7 76c7.7 0 12.5 5.5 13.5 13.7h-27.4c1.4-8.3 6.4-13.7 13.9-13.7m43.1-13.4H569v13c3.7-8.9 9.7-14.6 20.5-14.1v19.1h-1c-12.1 0-19.5 7.3-19.5 22.6v23.7h-18.2V62.6zM423.5 91c0-8.6 4.4-13 11.4-13s11 4.4 11 13v35.8h18.2V85.2c0-14.7-8-23.9-21.8-23.9-9.2 0-14.6 4.9-18.8 10.3v-9.1h-18.2v64.2h18.2V91zm-170.7 20.3h20l-11.1 17h-10.8l-4.6-.1c-24.1-.7-41.9-19.5-41.9-43.2v-.2c0-23.9 18-43.5 43.9-43.5 15.9 0 25.4 5.3 33.2 13l-11.8 13.6c-6.5-5.9-13.1-9.5-21.5-9.5-14.2 0-24.4 11.8-24.4 26.2v.2c0 14.4 10 26.4 24.4 26.4m-149.6 9c-8 5.3-17.4 8.2-27.3 8.2-20.5 0-38.7-12.3-46.3-31.4l-.6-1.5-14.3 8.6-2.9 8.3.2.5c.5 1.1 1 2.2 1.7 3.3 13.3 22 36.6 35.1 62.2 35.1 25.4 0 49.1-13.5 62.3-35.3-10.7 2.4-28.1 3.7-35 4.2"/>
+            <path class="green" d="M5.2 53.7v.4c-.1 4.5 1.4 8.5 4.6 11.7 0 0 10 14.7 62.2 17 31.9 1.4 95.6-8.6 95.6-8.6l14.7-22.7s-79.4 8.6-109.8 8.6c-47.4 0-56.3-13.9-56.3-13.9-4.9-4.9-4.5-9.9-4.5-9.9-2.6 3.4-6.3 8.9-6.5 17.4"/>
+            <path class="green" d="M75.7 91.5c-21.6 0-36.6-3.7-46.4-5.9-10-2.2-17.1 2.7-19.5 5-3.3 3.1-4.7 7.1-4.6 11.7v.4c.1 8.4 3.9 14 6.4 17.5 0 0-.4-5 4.5-9.9 0 0 6.2-6.4 12.7-4 10.8 4.2 45.8 6.6 45.8 6.6 35 0 73.3-7.9 73.3-7.9l14.7-22.7c.1-.1-45.6 9.2-86.9 9.2"/>
+          </svg>
+        </section>
+    </main>
+</body>
+
+<script>
+
+</script>
+</html>

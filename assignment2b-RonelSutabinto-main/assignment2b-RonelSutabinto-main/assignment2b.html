@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  
+    <title>Assignment2B</title>
+    <style>
+                /* typing google style*/
+        @import url('https://fonts.googleapis.com/css2?family=Fira+Mono&display=swap');
+
+        body {
+            color: #12343b;
+            margin: 0;
+            padding: 0;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 15px;
+            line-height: 1.5;
+        }
+        /* ############ content grid container ############ */
+
+        section.animation {
+            list-style-type: none;
+            margin: auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: repeat(2, 2fr);
+            align-items: center;
+        }
+        
+        /* typing animation ============================== */
+            .typing h1 {
+                animation: typing 3s steps(14),
+                blinking 0.5s steps(1) infinite;
+            }
+            
+            @keyframes typing {
+                0% {
+                width:0px;
+                }
+                100% {
+                width: 100%;
+                }
+            }
+
+            @keyframes blinking {
+                0%, 50% {
+                border-color: transparent;
+                }
+                50% {
+                border-color: #1836a3;
+                }
+            }
+
+
+            .typing h1 {
+                color: #433F55;
+                font-family: 'Fira Mono', monospace;
+                overflow: hidden; 
+                border-right: .15em solid #1836a3; 
+
+                white-space: nowrap; 
+                margin: 0 auto; 
+                letter-spacing: .15em; 
+            }
+
+            .typing {
+                padding-top: 5em;
+                background: #ffffff;
+                display: flex;
+                justify-content: center;
+                text-align: center;
+                
+            }
+
+        /* Wiggle text====================== */
+        @keyframes wiggle {
+            50% {
+            transform: translateX(10px) rotate(5deg);
+            }
+            0%, 100% {
+            transform: translateX(-10px) rotate(-5deg);
+            }
+        }
+        
+        .wiggle h2 {
+            font-size: 6rem;
+            font-family: "Fira Sans", sans-serif;
+            color: #1d39aa;
+            text-shadow: 4px 4px 0px #59C3C3;
+            transform-origin: 50% 0%;
+            animation: wiggle 0.6s infinite cubic-bezier(0.65, 0, 0.35, 1);
+        }
+        
+        .wiggle {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 20vh;
+        }
+
+        /* button style================= */
+
+        .btn {
+            font-family: 'Lato', sans-serif;
+            background: #fff;
+            margin-top:6rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        button:hover {
+            cursor: pointer;
+        }
+        
+        button {
+            border: 3px solid #159b5a;
+            margin: 30px auto 0;
+            padding: 14px 15px;
+            color: #fff;
+            background:#353535;
+            width:200px;
+            font-size:1rem;
+            text-align: center;
+            text-transform: uppercase;
+
+            border-radius: 15px;
+        }
+        
+        button {
+            transition: background .3s ease-in,
+                        transform .2s .1s ease-in-out,
+                        border-radius .3s ease-in;
+        }
+        
+        button:hover {
+            transform: scale(1.3);
+            background:#159b5a;
+            color: #353535;
+            border-radius: 20px;
+        }
+
+        /* Cloud animation ============*/
+
+        .cloud01 {
+            animation: float 15s linear infinite;
+        }
+        
+        .cloud02 {
+            animation: float 20s 5s linear infinite backwards;
+        }
+        
+        @keyframes float {
+            0% {
+            transform: translateX(-150px);
+            }
+            100% {
+            transform: translateX(820px);
+            }
+        }
+        
+        /* Other styles  */
+        
+        .cloud-wrap {
+            /* width: 800px; */
+            height: 150px;
+            overflow: hidden;
+            position:relative;
+        }
+
+        div.cloud-wrap{
+            grid-column: -4 / -1;
+        }
+        
+        .city, .cloud {position:absolute;}
+        
+        .city {z-index:100;}
+        
+        .cloud02 {top:76px;}
+        .cloud01 {top:30px;}
+        
+        img.cloud {width:150px;}
+        
+/* Navigation bag with hamburger menu
+====================================================== */
+/* Navigation bar hamburger style source from codepen by muteblues
+https://codepen.io/mutedblues/pen/MmPNPG 
+==================================================================*/
+.container-nav a {
+    color: #ffff;
+  }
+  
+  /* header */
+  
+  .header {
+    background-color: #fff;
+    box-shadow: 1px 1px 4px 0 rgba(0,0,0,.1);
+    position: fixed;
+    width: 100%;
+    z-index: 3;
+     background: linear-gradient(45deg, #405b60, #405b60);
+     display: block;
+  
+  }
+  
+  .header ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    overflow: hidden;
+    background-color: #fff;
+  }
+  
+  .header li a {
+    display: block;
+    padding: 20px 20px;
+  /*   border-right: 1px solid #f4f4f4; */
+    text-decoration: none;
+  }
+  
+  .header li a:hover,
+  .header .menu-btn:hover {
+    background-color: #12343b;
+  }
+  
+  .header .logo {
+    display: block;
+    float: left;
+    font-size: 2em;
+    padding: 10px 20px;
+    text-decoration: none;
+  }
+  
+  /* hamburger menu */
+  
+  .header .menu {
+    clear: both;
+    max-height: 0;
+    transition: max-height .2s ease-out;
+     background: linear-gradient(45deg, #405b60, #405b60);
+  } 
+  
+  
+  /* hamburger menu icon */
+  
+  .header .menu-icon {
+    cursor: pointer;
+    display: inline-block;
+    float: right;
+    padding: 28px 20px;
+    position: relative;
+    user-select: none;
+  }
+  
+  .header .menu-icon .navicon {
+    background: #333;
+    display: block;
+    height: 2px;
+    position: relative;
+    transition: background .2s ease-out;
+    width: 18px;
+  }
+  
+  .header .menu-icon .navicon:before,
+  .header .menu-icon .navicon:after {
+    background: #333;
+    content: '';
+    display: block;
+    height: 100%;
+    position: absolute;
+    transition: all .2s ease-out;
+    width: 100%;
+  }
+  
+  .header .menu-icon .navicon:before {
+    top: 5px;
+  }
+  
+  .header .menu-icon .navicon:after {
+    top: -5px;
+  }
+  
+  /* menu btn */
+  
+  .header .menu-btn {
+    display: none;
+  }
+  
+  .header .menu-btn:checked ~ .menu {
+    max-height: 240px;
+  }
+  
+  .header .menu-btn:checked ~ .menu-icon .navicon {
+    background: transparent;
+  }
+  
+  .header .menu-btn:checked ~ .menu-icon .navicon:before {
+    transform: rotate(-45deg);
+  }
+  
+  .header .menu-btn:checked ~ .menu-icon .navicon:after {
+    transform: rotate(45deg);
+  }
+  
+  .header .menu-btn:checked ~ .menu-icon:not(.steps) .navicon:before,
+  .header .menu-btn:checked ~ .menu-icon:not(.steps) .navicon:after {
+    top: 0;
+  }
+  .container-nav {
+    max-width: 1000px;
+    margin: 0 auto
+  }
+  
+  /* 48em = 768px */
+  @media (min-width: 768px) {
+      .header li {
+      float: left;
+      }
+      .header li a {
+      padding: 20px 30px;
+      }
+      .header .menu {
+      clear: none;
+      float: right;
+      max-height: none;
+      }
+      .header .menu-icon {
+      display: none;
+      }
+    }
+
+    /* 48em = 768px */
+  @media (max-width: 750px) {
+
+    /* add responsive display for animation*/
+    section.animation {
+        list-style-type: none;
+        margin: 0;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(4, 1fr);
+        text-align: center;
+    }
+    .cloud-wrap{
+        grid-column: auto;
+    }
+  }
+
+  
+    .container {
+      max-width: auto;
+      align-self: center;
+      align-content: center;
+      padding: 100px 50px;
+    }
+
+</style>
+</head>
+
+<body>
+    <main>
+       
+            <!-- Navigation bar=
+            ================================== -->
+            <section class="header">
+                <div class="container-nav">
+                    <a href="index.html" class="logo">Logo Here</a>
+                    <input class="menu-btn" type="checkbox" id="menu-btn" />
+                    <label class="menu-icon" for="menu-btn"><span class="navicon"></span></label>
+                    <ul class="menu">
+                    <li><a href="assignment2b.html">Assignment 2B</a></li>
+                    <li><a href="assignment2c.html">Assignment 2C</a></li>
+                    </ul>
+                </div>
+            </section>
+       
+
+        <!-- animarion container of 2 rows and 3 columns for big screen while 
+            on small screen it will become 4 rows with 1 column
+         -->
+         <div class="container">
+        <section class="animation">
+            <div class="wiggle">
+                <h2>Animation</h2>
+            </div>
+            <div class="btn">
+                <button>View Details</button>
+            </div>
+            <div class="typing">
+                <h1>Quick brown fox!</h1>
+            </div>
+            <div class="cloud-wrap">
+                <img src="images/cloud01.svg" class="cloud cloud01" />
+                <img src="images/cloud02.svg" class="cloud cloud02" />
+            </div>
+        </section>
+      </div>
+    </main>
+</body>
+
+</html>
