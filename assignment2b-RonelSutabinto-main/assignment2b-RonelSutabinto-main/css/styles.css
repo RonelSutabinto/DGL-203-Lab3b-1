@@ -7,6 +7,8 @@
    #e1b382
    #c89666
 */
+/* typing google style*/
+@import url('https://fonts.googleapis.com/css2?family=Fira+Mono&display=swap');
 
 /* Global style 
 ----------------------------------------------*/
@@ -391,3 +393,56 @@ https://codepen.io/mutedblues/pen/MmPNPG
       display: none;
     }
   }
+
+
+ /* Assignment 2c svg animation text flash
+  ================================================ */
+  /* 48em = 768px */
+  @media (min-width: 768px) {
+
+
+    /* add responsive display for animation*/
+    main.animation {
+        list-style-type: none;
+        margin: 0;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(4, 1fr);
+        text-align: center;
+    }
+    section.cloud-wrap{
+        grid-column: auto;
+    }
+  }
+  
+
+
+    @keyframes offset {
+      to { stroke-dashoffset: 0; }
+    }
+    @keyframes fill-blue {
+      to { fill: #007dba; stroke: transparent; }
+    }
+    @keyframes fill-green {
+      to { fill: #78be20; stroke: transparent; }
+    }
+    path {
+      stroke-width: 2;
+      stroke-dasharray: 3212;
+      stroke-dashoffset: 3212;
+      fill: transparent;
+    }
+    .blue {
+      stroke: #007dba;
+      animation: offset 10s linear forwards, fill-blue 1s 1s forwards;
+    }
+    .green {
+      stroke: #78be20;
+      animation: offset 10s linear forwards, fill-green 1s 1s forwards;
+    }
+
+    .container{
+      padding: 100px 0;
+      max-width: 800px;
+      margin: 0 auto;
+    }
